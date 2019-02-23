@@ -18,14 +18,6 @@
 package org.keycloak.adapters.installed.desktop;
 
 
-import org.keycloak.OAuth2Constants;
-import org.keycloak.OAuthErrorException;
-import org.keycloak.adapters.KeycloakDeployment;
-import org.keycloak.adapters.ServerRequest;
-import org.keycloak.adapters.installed.core.AbstractKeycloakInstalled;
-import org.keycloak.common.VerificationException;
-import org.keycloak.common.util.KeycloakUriBuilder;
-
 import java.awt.*;
 import java.io.*;
 import java.net.ServerSocket;
@@ -35,6 +27,13 @@ import java.net.URISyntaxException;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import org.keycloak.OAuth2Constants;
+import org.keycloak.OAuthErrorException;
+import org.keycloak.adapters.KeycloakDeployment;
+import org.keycloak.adapters.ServerRequest;
+import org.keycloak.adapters.installed.core.AbstractKeycloakInstalled;
+import org.keycloak.common.VerificationException;
+import org.keycloak.common.util.KeycloakUriBuilder;
 
 /**
  * @author <a href="mailto:sthorger@redhat.com">Stian Thorgersen</a>
@@ -144,8 +143,8 @@ public class KeycloakInstalledDesktop extends AbstractKeycloakInstalled {
     
     @Override
     public void logout() throws IOException, InterruptedException, URISyntaxException {
-        logoutDesktop();
         super.logout();
+        logoutDesktop();
     }
     
     private void logoutDesktop() throws IOException, URISyntaxException, InterruptedException {
